@@ -1,0 +1,343 @@
+/* variables */
+:root{
+    --main-bg-color: #a2bbff;
+    --all-outline: 0px solid #3e6e29;
+    --second-bg-color:#192a56;
+    --playerOne-color: orange;
+    --playerTwo-color: purple;
+    --grid-col-outline: 0.005rem solid #aa9bfd;
+    --column-hover-color: inherit;
+    --row-bg-color:#dcdde15b;
+    --player-one-shadow: -0.4rem 0.1rem 0.6rem rgb(255, 139, 7);
+    --player-two-shadow: 0.4rem 0.1rem 0.6rem rgb(255, 139, 7);
+    
+}
+/* variables */
+
+html{
+    padding: 0;
+    margin: 0;
+    font-size: 10px;    
+    font-family: 'Alegreya', serif;
+    height: 100vh;
+}
+
+body{
+    /* background-color: var(--main-bg-color); */
+    background-image: url("bg.jpg");
+    background-size: cover;
+}
+
+.main-container{
+    width: 60%;
+    height: 80vh;
+    margin-top: 5vh;
+    margin-left: auto;
+    margin-right: auto;    
+    border-color: var(--main-bg-colo);    
+    box-shadow: 0 0 0.5rem #234116;
+        
+}
+
+body *{
+    width: 100%;
+    height: 100%;
+}
+
+/* banner */
+.banner-container{
+    width: 100%;
+    height: 10%;
+    font-size: 3rem;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.1rem;                         
+    box-sizing: border-box;
+    background-color:var(--second-bg-color);
+    border-top: 1px solid ;
+    border-left: 1px solid ;
+    border-right: 1px solid ;
+    border-color: var(--second-bg-color);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.banner-container #banner__text{
+    display: block;
+    height: auto;
+    width: auto;
+    
+}
+/* banner */
+
+/* game */
+.game-container{
+    width: 100%;
+    height: 80%;
+    box-sizing: border-box;
+    padding: 0.3rem 0;
+    font-size: 2rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.game-container .column{
+    box-sizing: border-box;
+    padding: 0 0rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.game-container .column .row{
+    background-color: var(--row-bg-color); 
+    border-radius:0.0rem;   
+    box-sizing: border-box;
+    border: var(--grid-col-outline);
+}
+
+/* column hover */
+.game-container .column:hover{
+    background-color: var(--column-hover-color);
+} 
+
+/* clicked */
+.game-container .column .row.one{
+    background-color: var(--playerOne-color); 
+}
+
+.game-container .column .row.two{
+    background-color: var(--playerTwo-color); 
+}
+
+/* game */
+
+/* results */
+.result-container{
+    width: 100%;
+    height: 10%;
+    font-size: 2.5rem;
+    color: #ecf0f1;
+    text-align: center;
+    background-color: var(--second-bg-color);
+
+    display: flex;
+    flex-direction: row;
+    
+}
+/* start buton */
+.result-container .startTrigger{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #44bd32;
+}
+
+.result-container .startTrigger #startTrigger_text{
+    display: block;
+    height: auto;
+}
+
+
+
+.result-container .startTrigger:hover{
+    font-weight: 600;
+    font-size: 2.75rem;
+    background-color: rgb(1, 212, 1);
+    cursor: pointer;
+}
+
+.result-container .startTrigger.game-on{
+    font-weight: 600;
+    font-size: 2.1rem;
+    background-color: rgb(0, 134, 196);
+    cursor: initial;
+}
+.result-container .startTrigger.play-again{
+    font-weight: 600;
+    font-size: 2.2rem;
+    background-color:#e15f41;
+    cursor: pointer;
+}
+
+.result-container .startTrigger.play-again:hover{
+    font-weight: 800;
+    font-size: 2.75rem;
+    background-color:#fa6b4b;
+    cursor: pointer;
+}
+
+
+
+/* start buton */
+
+.result-container .player{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--second-bg-color);
+    
+}
+
+.result-container .player.playerOne.active{
+    box-shadow: var(--player-one-shadow);    
+}
+.result-container .player.playerTwo.active{
+    box-shadow: var(--player-two-shadow);
+}
+
+.result-container .player__name{
+    display: block;
+    height: auto;
+    align-self: center;
+    flex: 2;
+
+}
+
+/* color picker */
+.result-container .player__colorPicker{
+    flex:1;
+    background-color: rgb(238, 215, 215);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot {
+    height: 80%;
+    width: 80%;        
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .result-container .player__colorPicker #playerOne{
+    background-color: var(--playerOne-color)
+}
+
+.result-container .player__colorPicker #playerTwo{
+    background-color: var(--playerTwo-color)
+}
+
+/* color picker */
+/* results */
+
+/* media queries */
+@media screen and (max-width: 700px) {
+    .main-container{
+        width: 99%;
+    }
+
+    .result-container{
+        font-size: 1.8rem;
+    }
+
+    .result-container .startTrigger.play-again:hover{
+        font-size: 2.3rem;
+    }
+
+    .result-container .startTrigger:hover{
+        font-size: 2.3rem;
+    }
+
+
+    body #myModal{
+
+        width: 80%;        
+        top: 15vh;                
+        left: 10%;    
+
+    }
+    
+  }
+
+/* media queries */
+
+/* modal */
+
+#myModal{
+    display: none;
+    width: 30%;
+    height: auto;
+    position: fixed;
+    background-color: #fff;
+    top: 15%;
+    left: 35%;    
+    z-index: 100;
+    background-color: #c7ecee;
+    border-radius: 1rem;
+}
+
+#myModal .modal-content{
+    height: auto;
+}
+
+#myModal .modal-header{
+    height: auto;
+}
+
+#myModal .modal-title{
+    text-align: left;
+    padding-left: 2rem;
+    border-bottom: 0.1rem solid #10856d60;
+    color: #002850;
+}
+
+#myModal .modal-body{
+    height: auto;
+    font-size: 1.8rem;
+    text-align: center;
+    padding-bottom: 1rem;
+    margin: 0;
+}
+
+#myModal .modal-body #modal-text{
+    margin: 0.5rem 0;
+}
+
+.modal-body img{
+    width:40%;
+}
+
+
+#myModal .modal-footer{
+    height: auto;
+    bottom: 1rem;
+    display: block;
+    float: right;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    width: 30%;
+}
+
+
+
+#myModal #bottom--close{
+    background-color: #16a085;
+    border: 0;
+    border-radius: 0.5rem;
+    color: #fff;
+    padding: 0.7rem 0;
+    font-size: 2rem;
+    font-family: "Calibri", Courier, monospace;
+    
+}
+
+#myModal #bottom--close:hover,
+#myModal #bottom--close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #0d6d5a;
+  color: white;
+  font-weight: 500;
+}
